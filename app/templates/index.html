@@ -1,0 +1,19 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css"><title>FitBuddy - AI Workout Generator</title></head><body>
+<main class="card">
+<h1>💪 FitBuddy - AI Workout Generator</h1>
+<p class="sub">Get a 7-day plan and a nutrition tip that fit your goal.</p>
+{% if error %}<div class="error" role="alert">{{ error }}</div>{% endif %}
+<form action="/generate-workout" method="post">
+<label for="username">Name</label><input id="username" name="username" required>
+<label for="user_id">User ID</label><input id="user_id" name="user_id" type="number" min="1" required>
+<label for="age">Age</label><input id="age" name="age" type="number" min="10" max="100" required>
+<label for="weight">Weight (kg)</label><input id="weight" name="weight" type="number" step="0.1" min="20" required>
+<label for="goal">Fitness goal</label><input id="goal" name="goal" placeholder="e.g. weight loss, muscle gain" required>
+<label for="intensity">Workout intensity</label>
+<select id="intensity" name="intensity"><option value="low">Low</option><option value="medium">Medium</option><option value="high">High</option></select>
+<button type="submit">Generate plan</button>
+</form>
+<p class="meta"><a href="/view-all-users">Admin: view all users</a></p>
+</main></body></html>
